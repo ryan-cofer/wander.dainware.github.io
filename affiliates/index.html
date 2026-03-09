@@ -767,7 +767,7 @@
       btn.textContent = 'Sending…';
 
       try {
-        const res = await fetch(`${FUNCTIONS_BASE}/notifyAffiliateSignup`, {
+        const res = await fetch(`${FUNCTIONS_BASE}/affiliateInterestedNotify`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, platform }),
