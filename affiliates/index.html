@@ -161,171 +161,32 @@
       animation: fadeIn 1s ease forwards 0.5s;
     }
 
-    .phone-stack {
+    /* MOCKUP WRAPPER — used in both hero and product section */
+    .mockup-wrapper {
       position: relative;
-      width: 260px;
-      height: 520px;
+      display: inline-block;
     }
 
-    .phone {
-      position: absolute;
-      width: 240px;
-      height: 490px;
-      border-radius: 40px;
-      background: var(--black);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.1);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
+    .mockup-wrapper img {
+      display: block;
     }
 
-    .phone-back {
-      top: 30px;
-      left: 20px;
-      background: #1a1a18;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-      transform: rotate(4deg);
-    }
-
-    .phone-front {
-      top: 0;
-      left: 0;
-      transform: rotate(-2deg);
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(160deg, #1c1c1e 0%, #0a0a0a 100%);
-      display: flex;
-      flex-direction: column;
-      padding: 52px 20px 28px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .phone-screen::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: rgba(255,255,255,0.06);
-    }
-
-    /* Notch */
-    .phone-notch {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90px;
-      height: 26px;
-      background: var(--black);
-      border-radius: 20px;
-    }
-
-    /* Mock map */
-    .mock-map {
-      flex: 1;
-      border-radius: 16px;
-      background: #2a2a28;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .map-grid {
-      position: absolute;
-      inset: 0;
-      opacity: 0.15;
-      background-image:
-        linear-gradient(rgba(200,184,154,0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,184,154,0.5) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-
-    .map-road-h {
-      position: absolute;
-      height: 6px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 3px;
-    }
-    .map-road-v {
-      position: absolute;
-      width: 6px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 3px;
-    }
-
-    .map-poi {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .map-poi.active {
-      width: 12px;
-      height: 12px;
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(200,184,154,0.4);
-      animation: pulse 2s ease infinite;
-    }
-
-    .map-user {
+    /* Pulsing yellow POI dot */
+    .poi-dot-overlay {
       position: absolute;
       width: 14px;
       height: 14px;
+      background: #FFD700;
       border-radius: 50%;
-      background: #4a9eff;
-      border: 2px solid white;
-      box-shadow: 0 0 0 4px rgba(74,158,255,0.25);
-      top: 55%;
-      left: 45%;
+      transform: translate(-50%, -50%);
+      animation: poiPulse 2s ease infinite;
+      pointer-events: none;
     }
 
-    /* Narration card */
-    .narration-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 14px 16px;
-      backdrop-filter: blur(8px);
-    }
-
-    .narration-label {
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .narration-text {
-      font-size: 11px;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.75);
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-
-    .narration-text span {
-      color: white;
-      font-weight: 500;
-    }
-
-    .waveform {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      margin-top: 10px;
-    }
-
-    .wave-bar {
-      width: 2px;
-      background: var(--accent);
-      border-radius: 2px;
-      animation: wave 1.2s ease infinite;
+    @keyframes poiPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+      70%  { box-shadow: 0 0 0 14px rgba(255, 215, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
     }
 
     /* STATS STRIP */
@@ -497,7 +358,7 @@
       color: var(--text-light);
     }
 
-    /* SECOND PHONE */
+    /* PRODUCT SECTION */
     .product-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -511,82 +372,6 @@
     .product-phones {
       display: flex;
       justify-content: center;
-      gap: -20px;
-    }
-
-    .phone-single {
-      width: 220px;
-      height: 450px;
-      border-radius: 36px;
-      background: var(--black);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.15);
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.08);
-      position: relative;
-    }
-
-    .phone-single-screen {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(160deg, #1c1c1e 0%, #0a0a0a 100%);
-      display: flex;
-      flex-direction: column;
-      padding: 52px 16px 24px;
-    }
-
-    .screen-header {
-      margin-bottom: 16px;
-    }
-
-    .screen-title-sm {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    .screen-heading {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      color: white;
-    }
-
-    .poi-list { display: flex; flex-direction: column; gap: 8px; }
-
-    .poi-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .poi-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .poi-dot.far { background: rgba(23,88,115,0.3); }
-
-    .poi-info { flex: 1; }
-
-    .poi-name {
-      font-size: 11px;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 2px;
-    }
-
-    .poi-dist {
-      font-size: 10px;
-      color: rgba(255,255,255,0.35);
     }
 
     /* CTA SECTION */
@@ -640,8 +425,6 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
-
-    /* END */
 
     /* ANIMATIONS */
     @keyframes fadeUp {
@@ -713,7 +496,14 @@
       </div>
 
       <div class="hero-right">
-        <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
+        <!-- Mockup with pulsing yellow dot overlay -->
+        <div class="mockup-wrapper">
+          <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
+          <!-- Dot positioned over the map area of the phone screen.
+               Adjust top/left percentages to fine-tune placement. -->
+          <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -726,7 +516,7 @@
       </div>
       <div class="stat">
         <div class="stat-number">∞</div>
-        <div class="stat-label">Indefinte Commission Window</div>
+        <div class="stat-label">Indefinite Commission Window</div>
       </div>
       <div class="stat">
         <div class="stat-number">100%</div>
@@ -809,7 +599,11 @@
         <p style="font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75);">Your audience doesn't need to know where they're going. They just need to open the app and walk.</p>
       </div>
       <div class="product-phones">
-        <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 450px; object-fit: contain;" />
+        <!-- Dot position slightly adjusted for the smaller 450px-tall instance -->
+        <div class="mockup-wrapper">
+          <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 450px; object-fit: contain; display: block;" />
+          <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -821,4 +615,9 @@
       <p class="cta-body">We work with a small, select group of travel creators. If Wander is a genuine fit for your audience, we'd love to hear from you.</p>
       <a href="#" class="btn-primary" style="font-size: 13px;">Sign Up →</a>
       <br>
-      <a href="/cdn-cgi/l/email-protection#72000b131c3205131c1617005c16131b1c051300175c111d1f" class="cta-email">Or email <span class="__cf_email__" data
+      <a href="mailto:ryan@wanderaudioguide.com" class="cta-email">Or email us directly</a>
+    </div>
+  </section>
+
+</body>
+</html>
