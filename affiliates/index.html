@@ -556,7 +556,7 @@
         </div>
 
         <div class="form-field">
-          <label for="contentType">Content Type</label>
+          <label for="contentType">Content Medium</label>
           <div class="select-wrapper">
             <select id="contentType">
               <option value="" disabled selected>Select your platform…</option>
@@ -566,6 +566,12 @@
               <option value="Blog">Blog</option>
             </select>
           </div>
+        </div>
+
+        <div class="form-field">
+          <label for="mediumUrl">Medium URL</label>
+          <input type="url" id="mediumUrl" placeholder="https://" autocomplete="url" />
+          <p style="font-size: 12px; color: var(--text-light); margin-top: 7px; line-height: 1.5;">Your YouTube channel, Facebook group, Instagram profile, or blog URL.</p>
         </div>
 
         <button class="modal-submit" id="submitBtn" onclick="submitForm()">Apply to Partner →</button>
@@ -715,11 +721,11 @@
       <p class="cta-body">Get started today.</p>
       <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up →</button>
       <br>
-      <a href="mailto:affiliates@dainware.com" class="cta-email">Or email us directly</a>
+      <a href="/cdn-cgi/l/email-protection#91f0f7f7f8fdf8f0e5f4e2d1f5f0f8ffe6f0e3f4bff2fefc" class="cta-email">Or email us directly</a>
     </div>
   </section>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
 
     function openModal() {
@@ -742,10 +748,11 @@
     });
 
     async function submitForm() {
-      const name     = document.getElementById('creatorName').value.trim();
-      const email    = document.getElementById('creatorEmail').value.trim();
-      const platform = document.getElementById('contentType').value;
-      const btn      = document.getElementById('submitBtn');
+      const name      = document.getElementById('creatorName').value.trim();
+      const email     = document.getElementById('creatorEmail').value.trim();
+      const platform  = document.getElementById('contentType').value;
+      const mediumUrl = document.getElementById('mediumUrl').value.trim();
+      const btn       = document.getElementById('submitBtn');
 
       if (!name) {
         alert('Please enter your name.');
@@ -758,7 +765,7 @@
         return;
       }
       if (!platform) {
-        alert('Please select your content type.');
+        alert('Please select your content medium.');
         document.getElementById('contentType').focus();
         return;
       }
@@ -770,7 +777,7 @@
         const res = await fetch(`${FUNCTIONS_BASE}/affiliateInterestedNotify`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, platform }),
+          body: JSON.stringify({ name, email, platform, mediumUrl }),
         });
 
         if (!res.ok) {
@@ -784,11 +791,4 @@
       } catch (err) {
         console.error('Signup error:', err.message);
         btn.disabled = false;
-        btn.textContent = 'Apply to Partner →';
-        alert('Something went wrong — please try again or email us at affiliates@dainware.com');
-      }
-    }
-  </script>
-
-</body>
-</html>
+        btn.textContent = 'Apply to Pa
