@@ -331,9 +331,9 @@
 
     /* STATS STRIP */
     .stats-strip {
-      background: var(--accent);
-      border-top: none;
-      border-bottom: none;
+      background: var(--white);
+      border-top: 1px solid rgba(23,88,115,0.1);
+      border-bottom: 1px solid rgba(23,88,115,0.1);
       padding: 40px 48px;
     }
 
@@ -348,7 +348,7 @@
     .stat {
       text-align: center;
       padding: 0 40px;
-      border-right: 1px solid rgba(255,255,255,0.25);
+      border-right: 1px solid rgba(23,88,115,0.15);
     }
     .stat:last-child { border-right: none; }
 
@@ -357,7 +357,7 @@
       font-size: 48px;
       font-weight: 700;
       letter-spacing: -0.05em;
-      color: white;
+      color: var(--accent);
       line-height: 1;
       margin-bottom: 8px;
     }
@@ -367,7 +367,7 @@
       font-weight: 700;
       letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
+      color: var(--text-light);
     }
 
     /* PROGRAM SECTION */
@@ -402,16 +402,16 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2px;
-      background: rgba(23,88,115,0.08);
-      border: 1px solid rgba(23,88,115,0.1);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
     .term-card {
-      background: var(--white);
+      background: rgba(255,255,255,0.08);
       padding: 44px 40px;
       transition: background 0.2s;
     }
-    .term-card:hover { background: var(--sand); }
+    .term-card:hover { background: rgba(255,255,255,0.15); }
 
     .term-icon {
       font-size: 28px;
@@ -424,13 +424,14 @@
       font-size: 20px;
       font-weight: 700;
       letter-spacing: -0.05em;
+      color: white;
       margin-bottom: 12px;
     }
 
     .term-body {
       font-size: 15px;
       line-height: 1.65;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.7);
     }
 
     .term-highlight {
@@ -438,15 +439,15 @@
       font-size: 36px;
       font-weight: 700;
       letter-spacing: -0.05em;
-      color: var(--accent);
+      color: white;
       display: block;
       margin-bottom: 8px;
     }
 
     /* HOW IT WORKS */
     .how-section {
-      background: var(--accent);
-      color: var(--white);
+      background: var(--white);
+      color: var(--text);
       padding: 100px 48px;
     }
 
@@ -455,19 +456,19 @@
       margin: 0 auto;
     }
 
-    .how-section .section-eyebrow { color: rgba(255,255,255,0.7); }
-    .how-section .section-title { color: var(--white); }
+    .how-section .section-eyebrow { color: var(--accent); }
+    .how-section .section-title { color: var(--text); }
 
     .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(23,88,115,0.15);
     }
 
     .step {
       padding: 44px 36px;
-      border-right: 1px solid rgba(255,255,255,0.2);
+      border-right: 1px solid rgba(23,88,115,0.15);
       position: relative;
     }
     .step:last-child { border-right: none; }
@@ -477,7 +478,7 @@
       font-size: 64px;
       font-weight: 700;
       letter-spacing: -0.05em;
-      color: rgba(255,255,255,0.15);
+      color: rgba(23,88,115,0.12);
       line-height: 1;
       margin-bottom: 24px;
     }
@@ -487,14 +488,14 @@
       font-size: 16px;
       font-weight: 700;
       letter-spacing: -0.05em;
-      color: var(--white);
+      color: var(--text);
       margin-bottom: 12px;
     }
 
     .step-body {
       font-size: 14px;
       line-height: 1.65;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-light);
     }
 
     /* SECOND PHONE */
@@ -591,10 +592,10 @@
 
     /* CTA SECTION */
     .cta-section {
-      background: var(--accent);
+      background: var(--white);
       padding: 100px 48px;
       text-align: center;
-      border-top: none;
+      border-top: 1px solid rgba(23,88,115,0.1);
     }
 
     .cta-inner { max-width: 640px; margin: 0 auto; }
@@ -605,25 +606,25 @@
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.05em;
-      color: white;
+      color: var(--text);
       margin-bottom: 24px;
     }
 
-    .cta-title em { font-style: italic; color: rgba(255,255,255,0.75); }
+    .cta-title em { font-style: italic; color: var(--accent); }
 
     .cta-body {
       font-size: 17px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.75);
+      color: var(--text-light);
       margin-bottom: 48px;
     }
 
     .cta-section .btn-primary {
-      background: white;
-      color: var(--accent);
+      background: var(--accent);
+      color: white;
     }
     .cta-section .btn-primary:hover {
-      background: rgba(255,255,255,0.85);
+      background: var(--accent-dark);
     }
 
     .cta-email {
@@ -632,14 +633,14 @@
       font-weight: 700;
       letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.4);
+      border-bottom: 1px solid var(--accent);
       padding-bottom: 4px;
       margin-top: 24px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .cta-email:hover { color: white; border-color: white; }
+    .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
     /* FOOTER */
     footer {
@@ -696,7 +697,7 @@
       .hero-right { order: -1; }
 
       .stats-inner { grid-template-columns: 1fr; gap: 32px; }
-      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.25); padding: 0 0 32px; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.15); padding: 0 0 32px; }
       .stat:last-child { border-bottom: none; }
 
       .section { padding: 64px 24px; }
@@ -720,15 +721,15 @@
   </nav>
 
   <!-- HERO -->
-  <section style="background: var(--white);">
+  <section style="background: var(--accent);">
     <div class="hero">
       <div class="hero-left">
-        <p class="hero-eyebrow">Creator Affiliate Program</p>
-        <h1 class="hero-title">Your audience<br>deserves a <em>better</em><br>way to explore.</h1>
-        <p class="hero-body">Wander is a location-aware audio guide that works anywhere in the world. Partner with us and earn 25% commission — with no expiration date.</p>
+        <p class="hero-eyebrow" style="color: rgba(255,255,255,0.7);">Creator Affiliate Program</p>
+        <h1 class="hero-title" style="color: white;">Your audience<br>deserves a <em style="color: rgba(255,255,255,0.7);">better</em><br>way to explore.</h1>
+        <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware audio guide that works anywhere in the world. Partner with us and earn 25% commission — with no expiration date.</p>
         <div class="hero-actions">
-          <a href="#apply" class="btn-primary">Apply to Partner</a>
-          <a href="#program" class="btn-secondary">See the details</a>
+          <a href="#apply" class="btn-primary" style="background: white; color: var(--accent);">Apply to Partner</a>
+          <a href="#program" class="btn-secondary" style="color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.5);">See the details</a>
         </div>
       </div>
 
@@ -806,10 +807,10 @@
   </div>
 
   <!-- PROGRAM TERMS -->
-  <section id="program">
+  <section id="program" style="background: var(--accent);">
     <div class="section">
-      <p class="section-eyebrow">The Program</p>
-      <h2 class="section-title">A partnership built for<br>the <em>long game.</em></h2>
+      <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Program</p>
+      <h2 class="section-title" style="color: white;">A partnership built for<br>the <em style="color: rgba(255,255,255,0.7);">long game.</em></h2>
       <div class="terms-grid">
         <div class="term-card">
           <span class="term-icon">💰</span>
@@ -843,7 +844,7 @@
   <section class="how-section">
     <div class="how-inner">
       <p class="section-eyebrow">How It Works</p>
-      <h2 class="section-title" style="color: white;">Simple from day one.</h2>
+      <h2 class="section-title">Simple from day one.</h2>
       <div class="steps">
         <div class="step">
           <div class="step-number">01</div>
@@ -870,13 +871,13 @@
   </section>
 
   <!-- PRODUCT DETAIL -->
-  <section>
+  <section style="background: var(--accent);">
     <div class="product-section">
       <div>
-        <p class="section-eyebrow">The Product</p>
-        <h2 class="section-title">Worth promoting because it <em>actually works.</em></h2>
-        <p style="font-size: 16px; line-height: 1.75; color: var(--text-light); margin-bottom: 24px;">Wander identifies what's around you as you walk and narrates the stories — no planning required. It works in any city, in any country, in 31 languages.</p>
-        <p style="font-size: 16px; line-height: 1.75; color: var(--text-light);">Your audience doesn't need to know where they're going. They just need to open the app and walk.</p>
+        <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Product</p>
+        <h2 class="section-title" style="color: white;">Worth promoting because it <em style="color: rgba(255,255,255,0.7);">actually works.</em></h2>
+        <p style="font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Wander identifies what's around you as you walk and narrates the stories — no planning required. It works in any city, in any country, in 31 languages.</p>
+        <p style="font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75);">Your audience doesn't need to know where they're going. They just need to open the app and walk.</p>
       </div>
       <div class="product-phones">
         <div class="phone-single">
