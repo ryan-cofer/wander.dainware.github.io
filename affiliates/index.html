@@ -153,7 +153,8 @@
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
     }
-    .modal-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .modal-submit:hover:not(:disabled) { background: var(--accent-dark); transform: translateY(-1px); }
+    .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
     .modal-note {
       font-size: 12px;
@@ -204,16 +205,13 @@
       letter-spacing: -0.05em;
       text-transform: uppercase;
       color: white;
-      text-decoration: none;
+      background: none;
+      border: none;
       border-bottom: 1px solid rgba(255,255,255,0.6);
       padding-bottom: 2px;
-      transition: opacity 0.2s;
       cursor: pointer;
-      background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
       font-family: inherit;
+      transition: opacity 0.2s;
     }
     .nav-cta:hover { opacity: 0.75; border-bottom-color: white; }
 
@@ -570,7 +568,7 @@
           </div>
         </div>
 
-        <button class="modal-submit" onclick="submitForm()">Apply to Partner →</button>
+        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Apply to Partner →</button>
         <p class="modal-note">We'll be in touch within a few business days.</p>
       </div>
 
@@ -722,6 +720,8 @@
   </section>
 
   <script>
+    const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
+
     function openModal() {
       document.getElementById('signupModal').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -733,20 +733,19 @@
       document.body.style.overflow = '';
     }
 
-    // Close on backdrop click
     document.getElementById('signupModal').addEventListener('click', function(e) {
       if (e.target === this) closeModal();
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeModal();
     });
 
-    function submitForm() {
+    async function submitForm() {
       const name     = document.getElementById('creatorName').value.trim();
       const email    = document.getElementById('creatorEmail').value.trim();
       const platform = document.getElementById('contentType').value;
+      const btn      = document.getElementById('submitBtn');
 
       if (!name) {
         alert('Please enter your name.');
@@ -764,19 +763,30 @@
         return;
       }
 
-      const subject = encodeURIComponent('Wander Affiliate Application — ' + name);
-      const body    = encodeURIComponent(
-        'New affiliate application received:\n\n' +
-        'Name: '     + name     + '\n' +
-        'Email: '    + email    + '\n' +
-        'Platform: ' + platform + '\n'
-      );
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
 
-      window.location.href = 'mailto:affiliates@dainware.com?subject=' + subject + '&body=' + body;
+      try {
+        const res = await fetch(`${FUNCTIONS_BASE}/notifyAffiliateSignup`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, platform }),
+        });
 
-      // Show success state
-      document.getElementById('modalForm').classList.add('hidden');
-      document.getElementById('modalSuccess').classList.add('visible');
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || `Server error ${res.status}`);
+        }
+
+        document.getElementById('modalForm').classList.add('hidden');
+        document.getElementById('modalSuccess').classList.add('visible');
+
+      } catch (err) {
+        console.error('Signup error:', err.message);
+        btn.disabled = false;
+        btn.textContent = 'Apply to Partner →';
+        alert('Something went wrong — please try again or email us at affiliates@dainware.com');
+      }
     }
   </script>
 
