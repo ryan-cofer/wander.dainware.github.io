@@ -30,7 +30,156 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
+    /* ── MODAL ─────────────────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 26, 34, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 440px;
+      padding: 48px 44px 44px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.2);
+      animation: modalIn 0.25s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      font-size: 22px;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--text); }
+
+    .modal-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      margin-bottom: 32px;
+      line-height: 1.1;
+    }
+
+    .form-field { margin-bottom: 20px; }
+
+    .form-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .form-field input,
+    .form-field select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid rgba(23,88,115,0.2);
+      border-radius: 4px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus { border-color: var(--accent); }
+
+    .select-wrapper { position: relative; }
+
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .modal-submit {
+      display: block;
+      width: 100%;
+      margin-top: 28px;
+      padding: 15px;
+      background: var(--accent);
+      color: white;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .modal-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .modal-note {
+      font-size: 12px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .modal-success { display: none; text-align: center; padding: 16px 0; }
+    .modal-success.visible { display: block; }
+    .modal-form.hidden { display: none; }
+
+    .success-icon { font-size: 40px; margin-bottom: 20px; }
+
+    .success-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .success-body { font-size: 15px; line-height: 1.6; color: var(--text-light); }
+
+    /* ── NAV ───────────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -40,7 +189,6 @@
       align-items: center;
       justify-content: space-between;
       background: var(--accent);
-      border-bottom: none;
     }
 
     .nav-logo img {
@@ -60,10 +208,16 @@
       border-bottom: 1px solid rgba(255,255,255,0.6);
       padding-bottom: 2px;
       transition: opacity 0.2s;
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
     }
-    .nav-cta:hover { opacity: 0.75; border-color: white; }
+    .nav-cta:hover { opacity: 0.75; border-bottom-color: white; }
 
-    /* HERO */
+    /* ── HERO ──────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -82,33 +236,26 @@
       font-weight: 700;
       letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: var(--accent);
       margin-bottom: 24px;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.2s;
     }
 
     .hero-title {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: clamp(42px, 5vw, 64px);
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.05em;
-      color: var(--text);
       margin-bottom: 28px;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.35s;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .hero-title em { font-style: italic; }
 
     .hero-body {
       font-size: 17px;
       line-height: 1.7;
-      color: var(--text-light);
       max-width: 440px;
       margin-bottom: 48px;
       opacity: 0;
@@ -135,12 +282,11 @@
       text-decoration: none;
       padding: 16px 32px;
       border-radius: 4px;
+      border: none;
+      cursor: pointer;
       transition: background 0.2s, transform 0.2s;
     }
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
     .btn-secondary {
       font-size: 14px;
@@ -152,7 +298,7 @@
     }
     .btn-secondary:hover { color: var(--text); }
 
-    /* PHONE MOCKUP */
+    /* ── MOCKUP ────────────────────────────────────────────── */
     .hero-right {
       display: flex;
       justify-content: center;
@@ -161,17 +307,9 @@
       animation: fadeIn 1s ease forwards 0.5s;
     }
 
-    /* MOCKUP WRAPPER — used in both hero and product section */
-    .mockup-wrapper {
-      position: relative;
-      display: inline-block;
-    }
+    .mockup-wrapper { position: relative; display: inline-block; }
+    .mockup-wrapper img { display: block; }
 
-    .mockup-wrapper img {
-      display: block;
-    }
-
-    /* Pulsing yellow POI dot */
     .poi-dot-overlay {
       position: absolute;
       width: 14px;
@@ -189,7 +327,7 @@
       100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
     }
 
-    /* STATS STRIP */
+    /* ── STATS ─────────────────────────────────────────────── */
     .stats-strip {
       background: var(--white);
       border-top: 1px solid rgba(23,88,115,0.1);
@@ -202,7 +340,6 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
     }
 
     .stat {
@@ -213,7 +350,6 @@
     .stat:last-child { border-right: none; }
 
     .stat-number {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 48px;
       font-weight: 700;
       letter-spacing: -0.05em;
@@ -223,7 +359,6 @@
     }
 
     .stat-symbol {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 80px;
       font-weight: 700;
       letter-spacing: -0.05em;
@@ -240,12 +375,8 @@
       color: var(--text-light);
     }
 
-    /* PROGRAM SECTION */
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 48px;
-    }
+    /* ── PROGRAM ───────────────────────────────────────────── */
+    .section { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
 
     .section-eyebrow {
       font-size: 11px;
@@ -257,7 +388,6 @@
     }
 
     .section-title {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
       line-height: 1.05;
@@ -276,21 +406,11 @@
       border: 1px solid rgba(255,255,255,0.15);
     }
 
-    .term-card {
-      background: rgba(255,255,255,0.08);
-      padding: 44px 40px;
-      transition: background 0.2s;
-    }
+    .term-card { background: rgba(255,255,255,0.08); padding: 44px 40px; transition: background 0.2s; }
     .term-card:hover { background: rgba(255,255,255,0.15); }
-
-    .term-icon {
-      font-size: 28px;
-      margin-bottom: 20px;
-      display: block;
-    }
+    .term-icon { font-size: 28px; margin-bottom: 20px; display: block; }
 
     .term-title {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 20px;
       font-weight: 700;
       letter-spacing: -0.05em;
@@ -298,14 +418,9 @@
       margin-bottom: 12px;
     }
 
-    .term-body {
-      font-size: 15px;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.7);
-    }
+    .term-body { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.7); }
 
     .term-highlight {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 36px;
       font-weight: 700;
       letter-spacing: -0.05em;
@@ -314,37 +429,22 @@
       margin-bottom: 8px;
     }
 
-    /* HOW IT WORKS */
-    .how-section {
-      background: var(--white);
-      color: var(--text);
-      padding: 100px 48px;
-    }
-
-    .how-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    /* ── HOW IT WORKS ──────────────────────────────────────── */
+    .how-section { background: var(--white); color: var(--text); padding: 100px 48px; }
+    .how-inner { max-width: 1200px; margin: 0 auto; }
     .how-section .section-eyebrow { color: var(--accent); }
     .how-section .section-title { color: var(--text); }
 
     .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
       border: 1px solid rgba(23,88,115,0.15);
     }
 
-    .step {
-      padding: 44px 36px;
-      border-right: 1px solid rgba(23,88,115,0.15);
-      position: relative;
-    }
+    .step { padding: 44px 36px; border-right: 1px solid rgba(23,88,115,0.15); }
     .step:last-child { border-right: none; }
 
     .step-number {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 64px;
       font-weight: 700;
       letter-spacing: -0.05em;
@@ -353,22 +453,10 @@
       margin-bottom: 24px;
     }
 
-    .step-title {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
+    .step-title { font-size: 16px; font-weight: 700; letter-spacing: -0.05em; color: var(--text); margin-bottom: 12px; }
+    .step-body { font-size: 14px; line-height: 1.65; color: var(--text-light); }
 
-    .step-body {
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--text-light);
-    }
-
-    /* PRODUCT SECTION */
+    /* ── PRODUCT ───────────────────────────────────────────── */
     .product-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -379,12 +467,9 @@
       align-items: center;
     }
 
-    .product-phones {
-      display: flex;
-      justify-content: center;
-    }
+    .product-phones { display: flex; justify-content: center; }
 
-    /* CTA SECTION */
+    /* ── CTA ───────────────────────────────────────────────── */
     .cta-section {
       background: var(--white);
       padding: 100px 48px;
@@ -395,7 +480,6 @@
     .cta-inner { max-width: 640px; margin: 0 auto; }
 
     .cta-title {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: clamp(36px, 5vw, 56px);
       font-weight: 700;
       line-height: 1.05;
@@ -405,21 +489,7 @@
     }
 
     .cta-title em { font-style: italic; color: var(--accent); }
-
-    .cta-body {
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-light);
-      margin-bottom: 48px;
-    }
-
-    .cta-section .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-    .cta-section .btn-primary:hover {
-      background: var(--accent-dark);
-    }
+    .cta-body { font-size: 17px; line-height: 1.7; color: var(--text-light); margin-bottom: 48px; }
 
     .cta-email {
       display: inline-block;
@@ -436,89 +506,111 @@
     }
     .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
-    /* ANIMATIONS */
+    /* ── ANIMATIONS ────────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
-      to { opacity: 1; }
+      to   { opacity: 1; }
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(23,88,115,0.4); }
-      50% { box-shadow: 0 0 0 8px rgba(23,88,115,0.1); }
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: scaleY(0.4); }
-      50% { transform: scaleY(1); }
-    }
-
-    /* RESPONSIVE */
+    /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 100px 24px 60px;
-        gap: 60px;
-      }
-
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 60px; }
       .hero-right { order: -1; }
-
       .stats-inner { grid-template-columns: 1fr; gap: 32px; }
       .stat { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.15); padding: 0 0 32px; }
       .stat:last-child { border-bottom: none; }
-
       .section { padding: 64px 24px; }
       .terms-grid { grid-template-columns: 1fr; }
-
       .how-section { padding: 64px 24px; }
       .steps { grid-template-columns: 1fr 1fr; }
-      .step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-
+      .step { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.1); }
       .product-section { grid-template-columns: 1fr; padding: 64px 24px; }
       .cta-section { padding: 64px 24px; }
+      .modal { padding: 40px 28px 36px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- ── MODAL ─────────────────────────────────────────────── -->
+  <div class="modal-backdrop" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+
+      <div class="modal-form" id="modalForm">
+        <p class="modal-eyebrow">Creator Affiliate Program</p>
+        <h2 class="modal-title" id="modalTitle">Let's get you set up.</h2>
+
+        <div class="form-field">
+          <label for="creatorName">Your Name</label>
+          <input type="text" id="creatorName" placeholder="Jane Smith" autocomplete="name" />
+        </div>
+
+        <div class="form-field">
+          <label for="creatorEmail">Email Address</label>
+          <input type="email" id="creatorEmail" placeholder="you@example.com" autocomplete="email" />
+        </div>
+
+        <div class="form-field">
+          <label for="contentType">Content Type</label>
+          <div class="select-wrapper">
+            <select id="contentType">
+              <option value="" disabled selected>Select your platform…</option>
+              <option value="YouTube">YouTube</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Blog">Blog</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="modal-submit" onclick="submitForm()">Apply to Partner →</button>
+        <p class="modal-note">We'll be in touch within a few business days.</p>
+      </div>
+
+      <div class="modal-success" id="modalSuccess">
+        <div class="success-icon">✅</div>
+        <div class="success-title">Application sent!</div>
+        <p class="success-body">Thanks for reaching out. We'll review your application and get back to you within a few business days.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NAV ───────────────────────────────────────────────── -->
   <nav>
     <a href="#" class="nav-logo"><img src="/appTitle.png" alt="Wander" /></a>
-    <a href="#apply" class="nav-cta">Sign Up</a>
+    <button class="nav-cta" onclick="openModal()">Sign Up</button>
   </nav>
 
-  <!-- HERO -->
+  <!-- ── HERO ──────────────────────────────────────────────── -->
   <section style="background: var(--accent);">
     <div class="hero">
       <div class="hero-left">
         <p class="hero-eyebrow" style="color: rgba(255,255,255,0.7);">Creator Affiliate Program</p>
-        
         <h1 class="hero-title" style="color: white;">You <em style="color: rgba(255,255,255,0.7);">inspire</em><br>your audience<br>to travel.<br><br>We make it <em style="color: rgba(255,255,255,0.7);">magical</em> when<br>they arrive.</h1>
         <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware and proximity-triggered audio guide that works anywhere in the world. Partner with us and earn 25% commission — with no expiration date.</p>
         <div class="hero-actions">
-          <a href="#apply" class="btn-primary" style="background: white; color: var(--accent);">Sign Up</a>
+          <button onclick="openModal()" class="btn-primary" style="background: white; color: var(--accent);">Sign Up</button>
           <a href="#program" class="btn-secondary" style="color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.5);">See the details</a>
         </div>
       </div>
 
       <div class="hero-right">
-        <!-- Mockup with pulsing yellow dot overlay -->
         <div class="mockup-wrapper">
           <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
-          <!-- Dot positioned over the map area of the phone screen.
-               Adjust top/left percentages to fine-tune placement. -->
           <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- ── STATS ─────────────────────────────────────────────── -->
   <div class="stats-strip">
     <div class="stats-inner">
       <div class="stat">
@@ -536,7 +628,7 @@
     </div>
   </div>
 
-  <!-- PROGRAM TERMS -->
+  <!-- ── PROGRAM TERMS ─────────────────────────────────────── -->
   <section id="program" style="background: var(--accent);">
     <div class="section">
       <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Program</p>
@@ -570,7 +662,7 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- ── HOW IT WORKS ───────────────────────────────────────── -->
   <section class="how-section">
     <div class="how-inner">
       <p class="section-eyebrow">How It Works</p>
@@ -588,7 +680,7 @@
         </div>
         <div class="step">
           <div class="step-number">03</div>
-          <div class="step-title">Track your conversions</div>
+          <div class="step-title">Track Your Conversions</div>
           <p class="step-body">Use the affiliate portal to see the success of your promotions.</p>
         </div>
         <div class="step">
@@ -600,17 +692,16 @@
     </div>
   </section>
 
-  <!-- PRODUCT DETAIL -->
+  <!-- ── PRODUCT ────────────────────────────────────────────── -->
   <section style="background: var(--accent);">
     <div class="product-section">
       <div>
         <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Product</p>
         <h2 class="section-title" style="color: white;">Worth promoting because it <em style="color: rgba(255,255,255,0.7);">actually works.</em></h2>
-        <p style="font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Wander identifies the most important sights in your vicinity as you walk and narrates their stories in real time — no planning required. It works in every country, every city, every street - in 32 languages.</p>
+        <p style="font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Wander identifies the most important sights in your vicinity as you walk and narrates their stories in real time — no planning required. It works in every country, every city, every street — in 32 languages.</p>
         <p style="font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.75);">Just open the app and wander.</p>
       </div>
       <div class="product-phones">
-        <!-- Dot position slightly adjusted for the smaller 450px-tall instance -->
         <div class="mockup-wrapper">
           <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 450px; object-fit: contain; display: block;" />
           <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
@@ -619,16 +710,75 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ── CTA ────────────────────────────────────────────────── -->
   <section class="cta-section" id="apply">
     <div class="cta-inner">
       <h2 class="cta-title">Ready to<br><em>partner with us?</em></h2>
       <p class="cta-body">Get started today.</p>
-      <a href="#" class="btn-primary" style="font-size: 13px;">Sign Up →</a>
+      <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up →</button>
       <br>
       <a href="mailto:affiliates@dainware.com" class="cta-email">Or email us directly</a>
     </div>
   </section>
+
+  <script>
+    function openModal() {
+      document.getElementById('signupModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('creatorName').focus(), 100);
+    }
+
+    function closeModal() {
+      document.getElementById('signupModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click
+    document.getElementById('signupModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function submitForm() {
+      const name     = document.getElementById('creatorName').value.trim();
+      const email    = document.getElementById('creatorEmail').value.trim();
+      const platform = document.getElementById('contentType').value;
+
+      if (!name) {
+        alert('Please enter your name.');
+        document.getElementById('creatorName').focus();
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        document.getElementById('creatorEmail').focus();
+        return;
+      }
+      if (!platform) {
+        alert('Please select your content type.');
+        document.getElementById('contentType').focus();
+        return;
+      }
+
+      const subject = encodeURIComponent('Wander Affiliate Application — ' + name);
+      const body    = encodeURIComponent(
+        'New affiliate application received:\n\n' +
+        'Name: '     + name     + '\n' +
+        'Email: '    + email    + '\n' +
+        'Platform: ' + platform + '\n'
+      );
+
+      window.location.href = 'mailto:affiliates@dainware.com?subject=' + subject + '&body=' + body;
+
+      // Show success state
+      document.getElementById('modalForm').classList.add('hidden');
+      document.getElementById('modalSuccess').classList.add('visible');
+    }
+  </script>
 
 </body>
 </html>
