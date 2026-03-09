@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wander — Creator Affiliate Program</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --black: #0a0a0a;
-      --white: #fafaf8;
-      --sand: #f0ebe2;
-      --warm-gray: #8a8478;
-      --accent: #c8b89a;
-      --accent-dark: #a5957e;
-      --text: #1a1a18;
-      --text-light: #6b6660;
+      --white: #ffffff;
+      --sand: #e8f2f6;
+      --warm-gray: #4a7a8a;
+      --accent: #175873;
+      --accent-dark: #0f3d52;
+      --text: #0a1a22;
+      --text-light: #4a6a7a;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,8 +23,8 @@
     body {
       background: var(--white);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 400;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -44,30 +41,27 @@
       background: rgba(250,250,248,0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,184,154,0.2);
+      border-bottom: 1px solid rgba(23,88,115,0.15);
     }
 
-    .nav-logo {
-      font-family: 'Fraunces', serif;
-      font-size: 22px;
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      color: var(--text);
-      text-decoration: none;
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
     }
 
     .nav-cta {
       font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: var(--text);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid var(--accent-dark);
+      border-bottom: 1px solid var(--accent);
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .nav-cta:hover { color: var(--accent-dark); }
+    .nav-cta:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
     /* HERO */
     .hero {
@@ -85,21 +79,21 @@
 
     .hero-eyebrow {
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: var(--accent-dark);
+      color: var(--accent);
       margin-bottom: 24px;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.2s;
     }
 
     .hero-title {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: clamp(42px, 5vw, 64px);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
       color: var(--text);
       margin-bottom: 28px;
       opacity: 0;
@@ -108,7 +102,7 @@
 
     .hero-title em {
       font-style: italic;
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     .hero-body {
@@ -131,15 +125,16 @@
 
     .btn-primary {
       display: inline-block;
-      background: var(--text);
+      background: var(--accent);
       color: var(--white);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
       text-decoration: none;
       padding: 16px 32px;
+      border-radius: 4px;
       transition: background 0.2s, transform 0.2s;
     }
     .btn-primary:hover {
@@ -311,7 +306,7 @@
       font-size: 11px;
       line-height: 1.5;
       color: rgba(255,255,255,0.75);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     .narration-text span {
@@ -336,8 +331,8 @@
     /* STATS STRIP */
     .stats-strip {
       background: var(--sand);
-      border-top: 1px solid rgba(200,184,154,0.3);
-      border-bottom: 1px solid rgba(200,184,154,0.3);
+      border-top: 1px solid rgba(23,88,115,0.15);
+      border-bottom: 1px solid rgba(23,88,115,0.15);
       padding: 40px 48px;
     }
 
@@ -352,23 +347,24 @@
     .stat {
       text-align: center;
       padding: 0 40px;
-      border-right: 1px solid rgba(200,184,154,0.4);
+      border-right: 1px solid rgba(23,88,115,0.2);
     }
     .stat:last-child { border-right: none; }
 
     .stat-number {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 48px;
-      font-weight: 300;
-      color: var(--text);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: var(--accent);
       line-height: 1;
       margin-bottom: 8px;
     }
 
     .stat-label {
       font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
       color: var(--text-light);
     }
@@ -382,31 +378,31 @@
 
     .section-eyebrow {
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: var(--accent-dark);
+      color: var(--accent);
       margin-bottom: 20px;
     }
 
     .section-title {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: clamp(32px, 4vw, 48px);
-      font-weight: 300;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
       margin-bottom: 64px;
       max-width: 560px;
     }
 
-    .section-title em { font-style: italic; color: var(--accent-dark); }
+    .section-title em { font-style: italic; color: var(--accent); }
 
     .terms-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2px;
-      background: rgba(200,184,154,0.2);
-      border: 1px solid rgba(200,184,154,0.2);
+      background: rgba(23,88,115,0.08);
+      border: 1px solid rgba(23,88,115,0.1);
     }
 
     .term-card {
@@ -423,11 +419,11 @@
     }
 
     .term-title {
-      font-family: 'Fraunces', serif;
-      font-size: 22px;
-      font-weight: 300;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       margin-bottom: 12px;
-      letter-spacing: -0.01em;
     }
 
     .term-body {
@@ -437,13 +433,13 @@
     }
 
     .term-highlight {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 36px;
-      font-weight: 300;
-      color: var(--text);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: var(--accent);
       display: block;
       margin-bottom: 8px;
-      letter-spacing: -0.02em;
     }
 
     /* HOW IT WORKS */
@@ -476,19 +472,20 @@
     .step:last-child { border-right: none; }
 
     .step-number {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 64px;
-      font-weight: 300;
-      color: rgba(200,184,154,0.15);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: rgba(23,88,115,0.15);
       line-height: 1;
       margin-bottom: 24px;
-      letter-spacing: -0.03em;
     }
 
     .step-title {
-      font-family: 'Fraunces', serif;
-      font-size: 18px;
-      font-weight: 300;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       color: var(--white);
       margin-bottom: 12px;
     }
@@ -549,9 +546,10 @@
     }
 
     .screen-heading {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 18px;
-      font-weight: 300;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       color: white;
     }
 
@@ -575,7 +573,7 @@
       flex-shrink: 0;
     }
 
-    .poi-dot.far { background: rgba(200,184,154,0.3); }
+    .poi-dot.far { background: rgba(23,88,115,0.3); }
 
     .poi-info { flex: 1; }
 
@@ -595,21 +593,21 @@
       background: var(--sand);
       padding: 100px 48px;
       text-align: center;
-      border-top: 1px solid rgba(200,184,154,0.3);
+      border-top: 1px solid rgba(23,88,115,0.15);
     }
 
     .cta-inner { max-width: 640px; margin: 0 auto; }
 
     .cta-title {
-      font-family: 'Fraunces', serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: clamp(36px, 5vw, 56px);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
       margin-bottom: 24px;
     }
 
-    .cta-title em { font-style: italic; color: var(--accent-dark); }
+    .cta-title em { font-style: italic; color: var(--accent); }
 
     .cta-body {
       font-size: 17px;
@@ -621,17 +619,17 @@
     .cta-email {
       display: inline-block;
       font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 700;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
-      color: var(--text);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 2px solid var(--accent-dark);
+      border-bottom: 2px solid var(--accent);
       padding-bottom: 4px;
       margin-top: 24px;
       transition: color 0.2s;
     }
-    .cta-email:hover { color: var(--accent-dark); }
+    .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
     /* FOOTER */
     footer {
@@ -642,11 +640,11 @@
       justify-content: space-between;
     }
 
-    .footer-logo {
-      font-family: 'Fraunces', serif;
-      font-size: 20px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.5);
+    .footer-logo img {
+      height: 22px;
+      width: auto;
+      opacity: 0.4;
+      filter: brightness(0) invert(1);
     }
 
     .footer-copy {
@@ -666,8 +664,8 @@
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(200,184,154,0.4); }
-      50% { box-shadow: 0 0 0 8px rgba(200,184,154,0.1); }
+      0%, 100% { box-shadow: 0 0 0 3px rgba(23,88,115,0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(23,88,115,0.1); }
     }
 
     @keyframes wave {
@@ -688,7 +686,7 @@
       .hero-right { order: -1; }
 
       .stats-inner { grid-template-columns: 1fr; gap: 32px; }
-      .stat { border-right: none; border-bottom: 1px solid rgba(200,184,154,0.4); padding: 0 0 32px; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.2); padding: 0 0 32px; }
       .stat:last-child { border-bottom: none; }
 
       .section { padding: 64px 24px; }
@@ -707,7 +705,7 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-logo">Wander</a>
+    <a href="#" class="nav-logo"><img src="/appTitle.png" alt="Wander" /></a>
     <a href="#apply" class="nav-cta">Apply to Partner</a>
   </nav>
 
@@ -921,13 +919,13 @@
       <p class="cta-body">We work with a small, select group of travel creators. If Wander is a genuine fit for your audience, we'd love to hear from you.</p>
       <a href="#" class="btn-primary" style="font-size: 13px;">Apply to Partner →</a>
       <br>
-      <a href="mailto:ryan@wanderaudioguide.com" class="cta-email">Or email ryan@wander.dainware.com directly</a>
+      <a href="mailto:ryan@wander.dainware.com" class="cta-email">Or email ryan@wander.dainware.com directly</a>
     </div>
   </section>
 
   <footer>
-    <span class="footer-logo">Wander</span>
-    <span class="footer-copy">© 2025 Dainware LLC. All rights reserved.</span>
+    <span class="footer-logo"><img src="/appTitle.png" alt="Wander" /></span>
+    <span class="footer-copy">© 2026 Dainware LLC. All rights reserved.</span>
   </footer>
 
 </body>
