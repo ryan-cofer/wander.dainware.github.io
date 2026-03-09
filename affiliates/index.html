@@ -632,8 +632,17 @@
     </div>
   </div>
 
+  <!-- ── WHY WANDER ─────────────────────────────────────────── -->
+  <section style="background: var(--accent);">
+    <div class="section" style="padding-bottom: 0;">
+      <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">Why Wander</p>
+      <h2 class="section-title" style="color: white; margin-bottom: 32px;">Why <em style="color: rgba(255,255,255,0.7);">Wander?</em></h2>
+      <p style="font-size: clamp(18px, 2.5vw, 24px); line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">The most successful affiliate partnerships are those where the product and audience are perfectly aligned. You could promote luggage. Or travel insurance. Or a VPN. Or you could recommend something your audience is thrilled about using on the trip they're already planning.</p>
+    </div>
+  </section>
+
   <!-- ── PROGRAM TERMS ─────────────────────────────────────── -->
-  <section id="program" style="background: var(--accent);">
+  <section id="program" style="background: var(--accent); border-top: 1px solid rgba(255,255,255,0.1);">
     <div class="section">
       <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Program</p>
       <h2 class="section-title" style="color: white;">A partnership built for<br>the <em style="color: rgba(255,255,255,0.7);">long game.</em></h2>
@@ -721,11 +730,11 @@
       <p class="cta-body">Get started today.</p>
       <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up →</button>
       <br>
-      <a href="mailto:affiliates@dainware.com" class="cta-email">Or email us directly</a>
+      <a href="/cdn-cgi/l/email-protection#e58483838c898c84918096a581848c8b92849780cb868a88" class="cta-email">Or email us directly</a>
     </div>
   </section>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.addEventListener('DOMContentLoaded', function () {
       const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
 
@@ -793,11 +802,3 @@
           console.error('Signup error:', err.message);
           btn.disabled = false;
           btn.textContent = 'Apply to Partner →';
-          alert('Something went wrong — please try again or email us at affiliates@dainware.com');
-        }
-      };
-    });
-  </script>
-
-</body>
-</html>
