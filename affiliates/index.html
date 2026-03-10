@@ -518,13 +518,38 @@
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
-      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 60px; }
-      .hero-right { order: -1; }
-      .stats-inner { grid-template-columns: 1fr; gap: 32px; }
-      .stat { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.15); padding: 0 0 32px; }
-      .stat:last-child { border-bottom: none; }
+
+      /* Hero: single column, mockup between headline and body copy */
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 100px 24px 60px;
+        gap: 32px;
+      }
+      .hero-left { display: contents; }
+      .hero-eyebrow { order: 1; }
+      .hero-title   { order: 2; }
+      .hero-right   { order: 3; }
+      .hero-body    { order: 4; }
+      .hero-actions { order: 5; }
+
+      /* Stats: keep horizontal, shrink font/padding */
+      .stats-strip { padding: 28px 16px; }
+      .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 0; }
+      .stat { border-right: 1px solid rgba(23,88,115,0.15); border-bottom: none; padding: 0 8px; }
+      .stat:last-child { border-right: none; }
+      .stat-number, .stat-symbol { font-size: 28px; }
+      .stat-label { font-size: 9px; }
+
       .section { padding: 64px 24px; }
-      .terms-grid { grid-template-columns: 1fr; }
+
+      /* Terms: keep 2×2 grid */
+      .terms-grid { grid-template-columns: repeat(2, 1fr); }
+      .term-card { padding: 28px 20px; }
+      .term-highlight { font-size: 26px; }
+      .term-title { font-size: 15px; }
+      .term-body { font-size: 13px; }
+
       .how-section { padding: 64px 24px; }
       .steps { grid-template-columns: 1fr 1fr; }
       .step { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.1); }
@@ -569,12 +594,12 @@
         </div>
 
         <div class="form-field">
-          <label for="mediumUrl">Content URL</label>
+          <label for="mediumUrl">Medium URL</label>
           <input type="url" id="mediumUrl" placeholder="https://" autocomplete="url" />
           <p style="font-size: 12px; color: var(--text-light); margin-top: 7px; line-height: 1.5;">Your YouTube channel, Facebook group, Instagram profile, or blog URL.</p>
         </div>
 
-        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Submit</button>
+        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Apply to Partner →</button>
         <p class="modal-note">We'll be in touch within a few business days.</p>
       </div>
 
@@ -737,11 +762,11 @@
       <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up →</button>
       <br><br><br>
       <p class="step-body">Questions?</p>
-      <a href="mailto:affiliates@dainware.com" class="cta-email">Email us directly</a>
+      <a href="/cdn-cgi/l/email-protection#f39295959a9f9a92879680b397929a9d84928196dd909c9e" class="cta-email">Email us directly</a>
     </div>
   </section>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
 
     function openModal() {
@@ -808,12 +833,4 @@
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('signupModal').addEventListener('click', function (e) {
         if (e.target === this) closeModal();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
-      });
-    });
-  </script>
-
-</body>
-</html>
+      }
