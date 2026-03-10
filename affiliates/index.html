@@ -711,9 +711,9 @@
         <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Product</p>
         <h2 class="section-title" style="color: white;">Worth promoting because it's <em style="color: rgba(255,255,255,0.7);">actually stunning.</em></h2>
         <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Wander identifies the most important sights in your vicinity as you walk and narrates their stories in real time.<br><br>Imagine:<br><em style="color: rgba(255,255,255,0.7);">"About 20 meters ahead, you'll find the..."<br><br>"...This magnificent building was built in the 16th century and was home to..."</em><br><br>You just walk. It works in every country, every city, every street — in 32 languages.<br><br>Just open the app and wander.</p>
-        <a href="https://apps.apple.com/us/app/wander-worldwide-audio-guide/id6759094813" 
+        <a href="https://apps.apple.com/us/app/wander-worldwide-audio-guide/id6759094813"
            aria-label="Download from App Store"
-           target="_blank" 
+           target="_blank"
            rel="noopener noreferrer">
             <img src="downloadButton.svg?raw=true"
                  alt="Download on the App Store"
@@ -737,75 +737,83 @@
       <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up →</button>
       <br><br><br>
       <p class="step-body">Questions?</p>
-      <a href="/cdn-cgi/l/email-protection#e58483838c898c84918096a581848c8b92849780cb868a88" class="cta-email">Email us directly</a>
+      <a href="mailto:affiliates@dainware.com" class="cta-email">Email us directly</a>
     </div>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
+
+    function openModal() {
+      document.getElementById('signupModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('creatorName').focus(), 100);
+    }
+
+    function closeModal() {
+      document.getElementById('signupModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    async function submitForm() {
+      const name      = document.getElementById('creatorName').value.trim();
+      const email     = document.getElementById('creatorEmail').value.trim();
+      const platform  = document.getElementById('contentType').value;
+      const mediumUrl = document.getElementById('mediumUrl').value.trim();
+      const btn       = document.getElementById('submitBtn');
+
+      if (!name) {
+        alert('Please enter your name.');
+        document.getElementById('creatorName').focus();
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        document.getElementById('creatorEmail').focus();
+        return;
+      }
+      if (!platform) {
+        alert('Please select your content medium.');
+        document.getElementById('contentType').focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(`${FUNCTIONS_BASE}/affiliateInterestedNotify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, platform, mediumUrl }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || `Server error ${res.status}`);
+        }
+
+        document.getElementById('modalForm').classList.add('hidden');
+        document.getElementById('modalSuccess').classList.add('visible');
+
+      } catch (err) {
+        console.error('Signup error:', err.message);
+        btn.disabled = false;
+        btn.textContent = 'Apply to Partner →';
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    }
+
+    // Close on backdrop click or Escape key
     document.addEventListener('DOMContentLoaded', function () {
-      const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
-
-      window.openModal = function () {
-        document.getElementById('signupModal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => document.getElementById('creatorName').focus(), 100);
-      };
-
-      window.closeModal = function () {
-        document.getElementById('signupModal').classList.remove('open');
-        document.body.style.overflow = '';
-      };
-
       document.getElementById('signupModal').addEventListener('click', function (e) {
-        if (e.target === this) window.closeModal();
+        if (e.target === this) closeModal();
       });
-
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') window.closeModal();
+        if (e.key === 'Escape') closeModal();
       });
+    });
+  </script>
 
-      window.submitForm = async function () {
-        const name      = document.getElementById('creatorName').value.trim();
-        const email     = document.getElementById('creatorEmail').value.trim();
-        const platform  = document.getElementById('contentType').value;
-        const mediumUrl = document.getElementById('mediumUrl').value.trim();
-        const btn       = document.getElementById('submitBtn');
-
-        if (!name) {
-          alert('Please enter your name.');
-          document.getElementById('creatorName').focus();
-          return;
-        }
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          alert('Please enter a valid email address.');
-          document.getElementById('creatorEmail').focus();
-          return;
-        }
-        if (!platform) {
-          alert('Please select your content medium.');
-          document.getElementById('contentType').focus();
-          return;
-        }
-
-        btn.disabled = true;
-        btn.textContent = 'Sending…';
-
-        try {
-          const res = await fetch(`${FUNCTIONS_BASE}/affiliateInterestedNotify`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, platform, mediumUrl }),
-          });
-
-          if (!res.ok) {
-            const err = await res.json().catch(() => ({}));
-            throw new Error(err.error || `Server error ${res.status}`);
-          }
-
-          document.getElementById('modalForm').classList.add('hidden');
-          document.getElementById('modalSuccess').classList.add('visible');
-
-        } catch (err) {
-          console.error('Signup error:', err.message);
-          btn.disabled = false;
-          btn.textContent = 'Apply to Partner →';
+</body>
+</html>
