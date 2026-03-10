@@ -522,16 +522,7 @@
       color: white;
       text-align: left;
       line-height: 1.5;
-      white-space: pre;
-      overflow: hidden;
-      width: 0;
-      animation: typeReveal 3.5s steps(120, end) 1s forwards;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-    }
-
-    @keyframes typeReveal {
-      from { width: 0; }
-      to   { width: 100%; }
+      white-space: pre-wrap;
     }
 
     /* ── PULSE OVERLAY ─────────────────────────────────────── */
@@ -552,7 +543,6 @@
       color: white;
       text-align: center;
       line-height: 1.5;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
       animation: textPulse 2.5s ease-in-out infinite;
     }
 
@@ -702,10 +692,7 @@
           <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
           <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
           <div class="typewriter-overlay">
-            <div class="typewriter-text">About 50 meters ahead, you'll find the
-oldest building in Valencia. Built in 1238
-and on top of a former Moorish structure,
-it now houses one of the most</div>
+            <div class="typewriter-text" id="typewriterText"></div>
           </div>
         </div>
       </div>
@@ -905,6 +892,29 @@ it now houses one of the most</div>
         alert('Something went wrong. Please try again or email us directly.');
       }
     }
+
+    // Typewriter effect
+    const typewriterLines = [
+      "About 50 meters ahead, you'll find the",
+      "oldest building in Valencia. Built in 1238",
+      "and on top of a former Moorish structure,",
+      "it now houses one of the most"
+    ];
+    const typewriterFull = typewriterLines.join('
+');
+    const typewriterEl = document.getElementById('typewriterText');
+    let charIndex = 0;
+
+    function typeNextChar() {
+      if (!typewriterEl) return;
+      if (charIndex < typewriterFull.length) {
+        typewriterEl.textContent = typewriterFull.slice(0, charIndex + 1);
+        charIndex++;
+        setTimeout(typeNextChar, 38);
+      }
+    }
+
+    setTimeout(typeNextChar, 1000);
 
     // Close on backdrop click or Escape key
     document.addEventListener('DOMContentLoaded', function () {
