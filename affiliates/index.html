@@ -504,6 +504,64 @@
     }
     .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
+
+    /* ── TYPEWRITER OVERLAY ────────────────────────────────── */
+    .typewriter-overlay {
+      position: absolute;
+      bottom: 18%;
+      left: 6%;
+      right: 6%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .typewriter-text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      text-align: left;
+      line-height: 1.5;
+      white-space: pre;
+      overflow: hidden;
+      width: 0;
+      animation: typeReveal 3.5s steps(120, end) 1s forwards;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    @keyframes typeReveal {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    /* ── PULSE OVERLAY ─────────────────────────────────────── */
+    .pulse-overlay {
+      position: absolute;
+      top: 14%;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .pulse-text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      text-align: center;
+      line-height: 1.5;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      animation: textPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes textPulse {
+      0%   { opacity: 0.3; }
+      50%  { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+
     /* ── ANIMATIONS ────────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -538,10 +596,10 @@
       }
       .hero-eyebrow { grid-area: eyebrow; margin-bottom: 8px; }
       .hero-title   { grid-area: title;   margin-bottom: 20px; }
-      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: end; padding-bottom: 16px; }
+      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: end; padding-bottom: 8px; }
       .hero-right   { grid-area: mockup;  opacity: 1; animation: none; align-self: center; }
       .hero-right img { max-height: 220px; }
-      .hero-actions { grid-area: actions; margin-top: 0; align-self: start; padding-top: 16px; }
+      .hero-actions { grid-area: actions; margin-top: 0; align-self: start; padding-top: 8px; }
 
       /* Stats: keep horizontal, shrink font/padding */
       .stats-strip { padding: 28px 16px; }
@@ -643,6 +701,12 @@
         <div class="mockup-wrapper">
           <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
           <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
+          <div class="typewriter-overlay">
+            <div class="typewriter-text">About 50 meters ahead, you'll find the
+oldest building in Valencia. Built in 1238
+and on top of a former Moorish structure,
+it now houses one of the most</div>
+          </div>
         </div>
       </div>
     </div>
@@ -671,7 +735,7 @@
     <div class="section" style="padding-bottom: 0;">
       <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">Why Wander</p>
       <h2 class="section-title" style="color: white; margin-bottom: 32px;">Why <em style="color: rgba(255,255,255,0.7);">Wander?</em></h2>
-      <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Good affiliate partnerships are those where the product and audience are perfectly aligned.<br><br><em style="color: rgba(255,255,255,0.7);">Great</em> affiliate partnerships are those where the product and audience are perfectly aligned <em style="color: rgba(255,255,255,0.7);">and</em> the product is extraordinary.<br><br>You could promote luggage. Or travel insurance. Or a VPN. Or you could recommend something your audience will be genuinely excited to use on the trip they're already planning.</p>
+      <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Good affiliate partnerships are those where the product and audience are perfectly aligned.<br><br><em style="color: rgba(255,255,255,0.7);">Great</em> affiliate partnerships are those where the product and audience are perfectly aligned <em style="color: rgba(255,255,255,0.7);">and</em> the product is exciting.<br><br>You could promote luggage. Or travel insurance. Or a VPN. Or you could recommend something your audience will be genuinely excited to use on the trip they're already planning.</p>
     </div>
   </section>
 
@@ -759,6 +823,9 @@
         <div class="mockup-wrapper">
           <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 450px; object-fit: contain; display: block;" />
           <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
+          <div class="pulse-overlay">
+            <div class="pulse-text">Searching for nearby<br>points of interest</div>
+          </div>
         </div>
       </div>
     </div>
