@@ -527,20 +527,21 @@
           "eyebrow  eyebrow"
           "title    title"
           "body     mockup"
-          "actions  actions";
+          "actions  mockup";
         padding: 100px 24px 60px;
         gap: 0;
         column-gap: 16px;
+        row-gap: 16px;
       }
       .hero-left {
         display: contents;
       }
       .hero-eyebrow { grid-area: eyebrow; margin-bottom: 8px; }
       .hero-title   { grid-area: title;   margin-bottom: 20px; }
-      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: center; }
+      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: end; }
       .hero-right   { grid-area: mockup;  opacity: 1; animation: none; align-self: center; }
       .hero-right img { max-height: 220px; }
-      .hero-actions { grid-area: actions; margin-top: 28px; }
+      .hero-actions { grid-area: actions; margin-top: 0; align-self: start; }
 
       /* Stats: keep horizontal, shrink font/padding */
       .stats-strip { padding: 28px 16px; }
