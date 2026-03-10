@@ -504,6 +504,9 @@
     }
     .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
+    /* hero-lower is transparent on desktop */
+    .hero-lower { display: contents; }
+
     /* ── ANIMATIONS ────────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -519,19 +522,30 @@
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
 
-      /* Hero: single column, mockup between headline and body copy */
+      /* Hero: title, then body+mockup side by side */
       .hero {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
         padding: 100px 24px 60px;
-        gap: 32px;
+        gap: 0;
       }
-      .hero-left { display: contents; }
-      .hero-eyebrow { order: 1; }
-      .hero-title   { order: 2; }
-      .hero-right   { order: 3; }
-      .hero-body    { order: 4; }
-      .hero-actions { order: 5; }
+      .hero-left { padding-top: 0; }
+      .hero-eyebrow { margin-bottom: 8px; }
+      .hero-title { margin-bottom: 20px; }
+      .hero-lower {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .hero-lower .hero-body { flex: 1; margin-bottom: 0; font-size: 14px; line-height: 1.55; }
+      .hero-lower .hero-right {
+        flex: 0 0 45%;
+        max-width: 45%;
+        opacity: 1;
+        animation: none;
+        justify-content: flex-end;
+      }
+      .hero-lower .hero-right img { max-height: 220px; }
 
       /* Stats: keep horizontal, shrink font/padding */
       .stats-strip { padding: 28px 16px; }
@@ -623,16 +637,17 @@
       <div class="hero-left">
         <p class="hero-eyebrow" style="color: rgba(255,255,255,0.7);">Creator Affiliate Program</p>
         <h1 class="hero-title" style="color: white;">You <em style="color: rgba(255,255,255,0.7);">inspire</em><br>your audience<br>to travel.<br><br>Wander makes it <em style="color: rgba(255,255,255,0.7);">magical</em> when they arrive.</h1>
-        <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware and proximity-triggered audio guide that works anywhere in the world. Partner with us and earn 25% commissions — with no expiration date.</p>
+        <div class="hero-lower">
+          <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware and proximity-triggered audio guide that works anywhere in the world. Partner with us and earn 25% commissions — with no expiration date.</p>
+          <div class="hero-right">
+            <div class="mockup-wrapper">
+              <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
+              <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
+            </div>
+          </div>
+        </div>
         <div class="hero-actions">
           <button onclick="openModal()" class="btn-primary" style="background: white; color: var(--accent);">Sign Up</button>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="mockup-wrapper">
-          <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
-          <div class="poi-dot-overlay" style="top: 42%; left: 52%;"></div>
         </div>
       </div>
     </div>
