@@ -30,7 +30,7 @@
       overflow-x: hidden;
     }
 
-    /* ── MODAL ─────────────────────────────────────────────── */
+    /* MODAL */
     .modal-backdrop {
       display: none;
       position: fixed;
@@ -43,7 +43,6 @@
       padding: 24px;
     }
     .modal-backdrop.open { display: flex; }
-
     .modal {
       background: var(--white);
       border-radius: 8px;
@@ -54,12 +53,10 @@
       box-shadow: 0 32px 80px rgba(0,0,0,0.2);
       animation: modalIn 0.25s ease;
     }
-
     @keyframes modalIn {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .modal-close {
       position: absolute;
       top: 18px; right: 20px;
@@ -73,7 +70,6 @@
       transition: color 0.2s;
     }
     .modal-close:hover { color: var(--text); }
-
     .modal-eyebrow {
       font-size: 11px;
       font-weight: 700;
@@ -82,7 +78,6 @@
       color: var(--accent);
       margin-bottom: 10px;
     }
-
     .modal-title {
       font-size: 26px;
       font-weight: 700;
@@ -91,9 +86,7 @@
       margin-bottom: 32px;
       line-height: 1.1;
     }
-
     .form-field { margin-bottom: 20px; }
-
     .form-field label {
       display: block;
       font-size: 12px;
@@ -103,7 +96,6 @@
       color: var(--text-light);
       margin-bottom: 8px;
     }
-
     .form-field input,
     .form-field select {
       width: 100%;
@@ -119,12 +111,9 @@
       appearance: none;
       -webkit-appearance: none;
     }
-
     .form-field input:focus,
     .form-field select:focus { border-color: var(--accent); }
-
     .select-wrapper { position: relative; }
-
     .select-wrapper::after {
       content: '▾';
       position: absolute;
@@ -135,7 +124,6 @@
       font-size: 14px;
       pointer-events: none;
     }
-
     .modal-submit {
       display: block;
       width: 100%;
@@ -155,7 +143,6 @@
     }
     .modal-submit:hover:not(:disabled) { background: var(--accent-dark); transform: translateY(-1px); }
     .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-
     .modal-note {
       font-size: 12px;
       color: var(--text-light);
@@ -163,13 +150,10 @@
       margin-top: 16px;
       line-height: 1.5;
     }
-
     .modal-success { display: none; text-align: center; padding: 16px 0; }
     .modal-success.visible { display: block; }
     .modal-form.hidden { display: none; }
-
     .success-icon { font-size: 40px; margin-bottom: 20px; }
-
     .success-title {
       font-size: 22px;
       font-weight: 700;
@@ -177,10 +161,9 @@
       color: var(--text);
       margin-bottom: 12px;
     }
-
     .success-body { font-size: 15px; line-height: 1.6; color: var(--text-light); }
 
-    /* ── NAV ───────────────────────────────────────────────── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -191,14 +174,12 @@
       justify-content: space-between;
       background: var(--accent);
     }
-
     .nav-logo img {
       height: 28px;
       width: auto;
       display: block;
       filter: brightness(0) invert(1);
     }
-
     .nav-cta {
       font-size: 13px;
       font-weight: 700;
@@ -215,7 +196,7 @@
     }
     .nav-cta:hover { opacity: 0.75; border-bottom-color: white; }
 
-    /* ── HERO ──────────────────────────────────────────────── */
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -226,9 +207,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .hero-left { padding-top: 20px; }
-
     .hero-eyebrow {
       font-size: 11px;
       font-weight: 700;
@@ -238,7 +217,6 @@
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.2s;
     }
-
     .hero-title {
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
@@ -248,9 +226,7 @@
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.35s;
     }
-
     .hero-title em { font-style: italic; }
-
     .hero-body {
       font-size: 17px;
       line-height: 1.7;
@@ -259,7 +235,6 @@
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.5s;
     }
-
     .hero-actions {
       display: flex;
       align-items: center;
@@ -267,7 +242,6 @@
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.65s;
     }
-
     .btn-primary {
       display: inline-block;
       background: var(--accent);
@@ -285,7 +259,6 @@
       transition: background 0.2s, transform 0.2s;
     }
     .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-
     .btn-secondary {
       font-size: 14px;
       color: var(--text-light);
@@ -296,7 +269,7 @@
     }
     .btn-secondary:hover { color: var(--text); }
 
-    /* ── MOCKUP ────────────────────────────────────────────── */
+    /* MOCKUP */
     .hero-right {
       display: flex;
       justify-content: center;
@@ -304,10 +277,8 @@
       opacity: 0;
       animation: fadeIn 1s ease forwards 0.5s;
     }
-
     .mockup-wrapper { position: relative; display: inline-block; }
     .mockup-wrapper img { display: block; }
-
     .poi-dot-overlay {
       position: absolute;
       width: 14px;
@@ -318,35 +289,75 @@
       animation: poiPulse 2s ease infinite;
       pointer-events: none;
     }
-
     @keyframes poiPulse {
       0%   { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
       70%  { box-shadow: 0 0 0 14px rgba(255, 165, 0, 0); }
       100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
     }
 
-    /* ── STATS ─────────────────────────────────────────────── */
+    /* TYPEWRITER OVERLAY */
+    .typewriter-overlay {
+      position: absolute;
+      bottom: 18%;
+      left: 6%;
+      right: 6%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .typewriter-text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      text-align: left;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    /* PULSE OVERLAY */
+    .pulse-overlay {
+      position: absolute;
+      top: 14%;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      z-index: 10;
+      text-align: center;
+    }
+    .pulse-text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: white;
+      text-align: center;
+      line-height: 1.5;
+      animation: textPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes textPulse {
+      0%   { opacity: 0.3; }
+      50%  { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+
+    /* STATS */
     .stats-strip {
       background: var(--white);
       border-top: 1px solid rgba(23,88,115,0.1);
       border-bottom: 1px solid rgba(23,88,115,0.1);
       padding: 40px 48px;
     }
-
     .stats-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
-
     .stat {
       text-align: center;
       padding: 0 40px;
       border-right: 1px solid rgba(23,88,115,0.15);
     }
     .stat:last-child { border-right: none; }
-
     .stat-number {
       font-size: 48px;
       font-weight: 700;
@@ -355,7 +366,6 @@
       line-height: 1;
       margin-bottom: 8px;
     }
-
     .stat-symbol {
       font-size: 48px;
       font-weight: 700;
@@ -364,7 +374,6 @@
       line-height: 1;
       margin-bottom: 8px;
     }
-
     .stat-label {
       font-size: 12px;
       font-weight: 700;
@@ -373,9 +382,8 @@
       color: var(--text-light);
     }
 
-    /* ── PROGRAM ───────────────────────────────────────────── */
+    /* PROGRAM */
     .section { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
-
     .section-eyebrow {
       font-size: 11px;
       font-weight: 700;
@@ -384,7 +392,6 @@
       color: var(--accent);
       margin-bottom: 20px;
     }
-
     .section-title {
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
@@ -393,9 +400,7 @@
       margin-bottom: 64px;
       max-width: 560px;
     }
-
     .section-title em { font-style: italic; color: var(--accent); }
-
     .terms-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -403,11 +408,9 @@
       background: rgba(255,255,255,0.15);
       border: 1px solid rgba(255,255,255,0.15);
     }
-
     .term-card { background: rgba(255,255,255,0.08); padding: 44px 40px; transition: background 0.2s; }
     .term-card:hover { background: rgba(255,255,255,0.15); }
     .term-icon { font-size: 28px; margin-bottom: 20px; display: block; }
-
     .term-title {
       font-size: 20px;
       font-weight: 700;
@@ -415,9 +418,7 @@
       color: white;
       margin-bottom: 12px;
     }
-
     .term-body { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.7); }
-
     .term-highlight {
       font-size: 36px;
       font-weight: 700;
@@ -427,21 +428,18 @@
       margin-bottom: 8px;
     }
 
-    /* ── HOW IT WORKS ──────────────────────────────────────── */
+    /* HOW IT WORKS */
     .how-section { background: var(--white); color: var(--text); padding: 100px 48px; }
     .how-inner { max-width: 1200px; margin: 0 auto; }
     .how-section .section-eyebrow { color: var(--accent); }
     .how-section .section-title { color: var(--text); }
-
     .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       border: 1px solid rgba(23,88,115,0.15);
     }
-
     .step { padding: 44px 36px; border-right: 1px solid rgba(23,88,115,0.15); }
     .step:last-child { border-right: none; }
-
     .step-number {
       font-size: 64px;
       font-weight: 700;
@@ -450,11 +448,10 @@
       line-height: 1;
       margin-bottom: 24px;
     }
-
     .step-title { font-size: 16px; font-weight: 700; letter-spacing: -0.05em; color: var(--text); margin-bottom: 12px; }
     .step-body { font-size: 14px; line-height: 1.65; color: var(--text-light); }
 
-    /* ── PRODUCT ───────────────────────────────────────────── */
+    /* PRODUCT */
     .product-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -464,19 +461,16 @@
       gap: 80px;
       align-items: center;
     }
-
     .product-phones { display: flex; justify-content: center; }
 
-    /* ── CTA ───────────────────────────────────────────────── */
+    /* CTA */
     .cta-section {
       background: var(--white);
       padding: 100px 48px;
       text-align: center;
       border-top: 1px solid rgba(23,88,115,0.1);
     }
-
     .cta-inner { max-width: 640px; margin: 0 auto; }
-
     .cta-title {
       font-size: clamp(36px, 5vw, 56px);
       font-weight: 700;
@@ -485,10 +479,8 @@
       color: var(--text);
       margin-bottom: 24px;
     }
-
     .cta-title em { font-style: italic; color: var(--accent); }
     .cta-body { font-size: 17px; line-height: 1.7; color: var(--text-light); margin-bottom: 48px; }
-
     .cta-email {
       display: inline-block;
       font-size: 13px;
@@ -504,70 +496,20 @@
     }
     .cta-email:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 
-
-    /* ── TYPEWRITER OVERLAY ────────────────────────────────── */
-    .typewriter-overlay {
-      position: absolute;
-      bottom: 18%;
-      left: 6%;
-      right: 6%;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .typewriter-text {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: white;
-      text-align: left;
-      line-height: 1.5;
-      white-space: pre-wrap;
-    }
-
-    /* ── PULSE OVERLAY ─────────────────────────────────────── */
-    .pulse-overlay {
-      position: absolute;
-      top: 14%;
-      left: 0;
-      right: 0;
-      pointer-events: none;
-      z-index: 10;
-      text-align: center;
-    }
-
-    .pulse-text {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: white;
-      text-align: center;
-      line-height: 1.5;
-      animation: textPulse 2.5s ease-in-out infinite;
-    }
-
-    @keyframes textPulse {
-      0%   { opacity: 0.3; }
-      50%  { opacity: 1; }
-      100% { opacity: 0.3; }
-    }
-
-    /* ── ANIMATIONS ────────────────────────────────────────── */
+    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
 
-    /* ── RESPONSIVE ────────────────────────────────────────── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
 
-      /* Hero: title full-width, then body left + mockup right */
       .hero {
         grid-template-columns: 1fr 45%;
         grid-template-rows: auto auto auto;
@@ -581,17 +523,14 @@
         column-gap: 16px;
         row-gap: 16px;
       }
-      .hero-left {
-        display: contents;
-      }
+      .hero-left { display: contents; }
       .hero-eyebrow { grid-area: eyebrow; margin-bottom: 8px; }
       .hero-title   { grid-area: title;   margin-bottom: 20px; }
-      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: end; padding-bottom: 8px; }
+      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: end; padding-bottom: 16px; }
       .hero-right   { grid-area: mockup;  opacity: 1; animation: none; align-self: center; }
       .hero-right img { max-height: 220px; }
-      .hero-actions { grid-area: actions; margin-top: 0; align-self: start; padding-top: 8px; }
+      .hero-actions { grid-area: actions; margin-top: 0; align-self: start; padding-top: 16px; }
 
-      /* Stats: keep horizontal, shrink font/padding */
       .stats-strip { padding: 28px 16px; }
       .stats-inner { grid-template-columns: repeat(3, 1fr); gap: 0; }
       .stat { border-right: 1px solid rgba(23,88,115,0.15); border-bottom: none; padding: 0 8px; }
@@ -601,7 +540,6 @@
 
       .section { padding: 64px 24px; }
 
-      /* Terms: keep 2×2 grid */
       .terms-grid { grid-template-columns: repeat(2, 1fr); }
       .term-card { padding: 28px 20px; }
       .term-highlight { font-size: 26px; }
@@ -619,30 +557,26 @@
 </head>
 <body>
 
-  <!-- ── MODAL ─────────────────────────────────────────────── -->
+  <!-- MODAL -->
   <div class="modal-backdrop" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&#x2715;</button>
       <div class="modal-form" id="modalForm">
         <p class="modal-eyebrow">Creator Affiliate Program</p>
         <h2 class="modal-title" id="modalTitle">Let's get you set up.</h2>
-
         <div class="form-field">
           <label for="creatorName">Your Name</label>
           <input type="text" id="creatorName" placeholder="Jane Smith" autocomplete="name" />
         </div>
-
         <div class="form-field">
           <label for="creatorEmail">Email Address</label>
           <input type="email" id="creatorEmail" placeholder="you@example.com" autocomplete="email" />
         </div>
-
         <div class="form-field">
           <label for="contentType">Content Medium</label>
           <div class="select-wrapper">
             <select id="contentType">
-              <option value="" disabled selected>Select your platform…</option>
+              <option value="" disabled selected>Select your platform&hellip;</option>
               <option value="YouTube">YouTube</option>
               <option value="Facebook">Facebook</option>
               <option value="Instagram">Instagram</option>
@@ -650,43 +584,39 @@
             </select>
           </div>
         </div>
-
         <div class="form-field">
           <label for="mediumUrl">Medium URL</label>
           <input type="url" id="mediumUrl" placeholder="https://" autocomplete="url" />
           <p style="font-size: 12px; color: var(--text-light); margin-top: 7px; line-height: 1.5;">Your YouTube channel, Facebook group, Instagram profile, or blog URL.</p>
         </div>
-
-        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Apply to Partner →</button>
+        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Apply to Partner &rarr;</button>
         <p class="modal-note">We'll be in touch within a few business days.</p>
       </div>
-
       <div class="modal-success" id="modalSuccess">
-        <div class="success-icon">✅</div>
+        <div class="success-icon">&#x2705;</div>
         <div class="success-title">Application sent!</div>
         <p class="success-body">Thanks for reaching out. We'll review your application and get back to you within a few business days.</p>
       </div>
     </div>
   </div>
 
-  <!-- ── NAV ───────────────────────────────────────────────── -->
+  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo"><img src="/appTitle.png" alt="Wander" /></a>
     <button class="nav-cta" onclick="openModal()">Sign Up</button>
   </nav>
 
-  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <!-- HERO -->
   <section style="background: var(--accent);">
     <div class="hero">
       <div class="hero-left">
         <p class="hero-eyebrow" style="color: rgba(255,255,255,0.7);">Creator Affiliate Program</p>
         <h1 class="hero-title" style="color: white;">You <em style="color: rgba(255,255,255,0.7);">inspire</em><br>your audience<br>to travel.<br><br>Wander makes it <em style="color: rgba(255,255,255,0.7);">magical</em> when they arrive.</h1>
-        <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware and proximity-triggered audio guide that works anywhere in the world. Partner with us and earn 25% commissions — with no expiration date.</p>
+        <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware and proximity-triggered audio guide that works anywhere in the world. Partner with us and earn 25% commissions &mdash; with no expiration date.</p>
         <div class="hero-actions">
           <button onclick="openModal()" class="btn-primary" style="background: white; color: var(--accent);">Sign Up</button>
         </div>
       </div>
-
       <div class="hero-right">
         <div class="mockup-wrapper">
           <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
@@ -699,7 +629,7 @@
     </div>
   </section>
 
-  <!-- ── STATS ─────────────────────────────────────────────── -->
+  <!-- STATS -->
   <div class="stats-strip">
     <div class="stats-inner">
       <div class="stat">
@@ -707,7 +637,7 @@
         <div class="stat-label">Affiliate Commission</div>
       </div>
       <div class="stat">
-        <div class="stat-symbol">∞</div>
+        <div class="stat-symbol">&infin;</div>
         <div class="stat-label">Indefinite Commission Window</div>
       </div>
       <div class="stat">
@@ -717,41 +647,41 @@
     </div>
   </div>
 
-  <!-- ── WHY WANDER ─────────────────────────────────────────── -->
+  <!-- WHY WANDER -->
   <section style="background: var(--accent);">
     <div class="section" style="padding-bottom: 0;">
       <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">Why Wander</p>
       <h2 class="section-title" style="color: white; margin-bottom: 32px;">Why <em style="color: rgba(255,255,255,0.7);">Wander?</em></h2>
-      <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Good affiliate partnerships are those where the product and audience are perfectly aligned.<br><br><em style="color: rgba(255,255,255,0.7);">Great</em> affiliate partnerships are those where the product and audience are perfectly aligned <em style="color: rgba(255,255,255,0.7);">and</em> the product is exciting.<br><br>You could promote luggage. Or travel insurance. Or a VPN. Or you could recommend something your audience will be genuinely excited to use on the trip they're already planning.</p>
+      <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Good affiliate partnerships are those where the product and audience are perfectly aligned.<br><br><em style="color: rgba(255,255,255,0.7);">Great</em> affiliate partnerships are those where the product and audience are perfectly aligned <em style="color: rgba(255,255,255,0.7);">and</em> the product is extraordinary.<br><br>You could promote luggage. Or travel insurance. Or a VPN. Or you could recommend something your audience will be genuinely excited to use on the trip they're already planning.</p>
     </div>
   </section>
 
-  <!-- ── PROGRAM TERMS ─────────────────────────────────────── -->
+  <!-- PROGRAM TERMS -->
   <section id="program" style="background: var(--accent); border-top: 1px solid rgba(255,255,255,0.1);">
     <div class="section">
       <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Program</p>
       <h2 class="section-title" style="color: white;">A partnership built for<br>the <em style="color: rgba(255,255,255,0.7);">long game.</em></h2>
       <div class="terms-grid">
         <div class="term-card">
-          <span class="term-icon">💰</span>
+          <span class="term-icon">&#x1F4B0;</span>
           <span class="term-highlight">25%</span>
           <div class="term-title">Commission on Every Sale</div>
-          <p class="term-body">You earn 25% on every purchase made with your unique promo code or affiliate link — no caps, no tiers, no fine print.</p>
+          <p class="term-body">You earn 25% on every purchase made with your unique promo code or affiliate link &mdash; no caps, no tiers, no fine print.</p>
         </div>
         <div class="term-card">
-          <span class="term-icon">♾️</span>
+          <span class="term-icon">&#x267E;&#xFE0F;</span>
           <span class="term-highlight">No Expiry</span>
           <div class="term-title">Indefinite Commission Window</div>
           <p class="term-body">Travel content has a long shelf life and so should your commission window. Every new sponsored post resets the clock.</p>
         </div>
         <div class="term-card">
-          <span class="term-icon">🎟️</span>
+          <span class="term-icon">&#x1F39F;&#xFE0F;</span>
           <span class="term-highlight">10% Off</span>
           <div class="term-title">Exclusive Audience Discount</div>
           <p class="term-body">Your followers get 10% off with your promo code. It's a genuine value-add for your audience, not just a tracking mechanism.</p>
         </div>
         <div class="term-card">
-          <span class="term-icon">🎨</span>
+          <span class="term-icon">&#x1F3A8;</span>
           <span class="term-highlight">Your Way</span>
           <div class="term-title">Full Creative Control</div>
           <p class="term-body">No scripts. No mandated talking points. You integrate Wander into your content in whatever way feels authentic to you and your audience.</p>
@@ -760,7 +690,7 @@
     </div>
   </section>
 
-  <!-- ── HOW IT WORKS ───────────────────────────────────────── -->
+  <!-- HOW IT WORKS -->
   <section class="how-section">
     <div class="how-inner">
       <p class="section-eyebrow">How It Works</p>
@@ -790,20 +720,15 @@
     </div>
   </section>
 
-  <!-- ── PRODUCT ────────────────────────────────────────────── -->
+  <!-- PRODUCT -->
   <section style="background: var(--accent);">
     <div class="product-section">
       <div>
         <p class="section-eyebrow" style="color: rgba(255,255,255,0.7);">The Product</p>
         <h2 class="section-title" style="color: white;">Worth promoting because it's <em style="color: rgba(255,255,255,0.7);">actually stunning.</em></h2>
-        <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Wander identifies the most important sights in your vicinity as you walk and narrates their stories in real time.<br><br>Imagine:<br><em style="color: rgba(255,255,255,0.7);">"About 20 meters ahead, you'll find the..."<br><br>"...This magnificent building was built in the 16th century and was home to..."</em><br><br>You just walk. It works in every country, every city, every street — in 32 languages.<br><br>Just open the app and wander.</p>
-        <a href="https://apps.apple.com/us/app/wander-worldwide-audio-guide/id6759094813"
-           aria-label="Download from App Store"
-           target="_blank"
-           rel="noopener noreferrer">
-            <img src="downloadButton.svg?raw=true"
-                 alt="Download on the App Store"
-                 class="download-button">
+        <p style="font-size: clamp(15px, 2.5vw, 20px); line-height: 1.2; color: rgba(255,255,255,0.85); max-width: 760px; padding-bottom: 100px;">Wander identifies the most important sights in your vicinity as you walk and narrates their stories in real time.<br><br>Imagine:<br><em style="color: rgba(255,255,255,0.7);">"About 20 meters ahead, you'll find the..."<br><br>"...This magnificent building was built in the 16th century and was home to..."</em><br><br>You just walk. It works in every country, every city, every street &mdash; in 32 languages.<br><br>Just open the app and wander.</p>
+        <a href="https://apps.apple.com/us/app/wander-worldwide-audio-guide/id6759094813" aria-label="Download from App Store" target="_blank" rel="noopener noreferrer">
+          <img src="downloadButton.svg?raw=true" alt="Download on the App Store" class="download-button">
         </a>
       </div>
       <div class="product-phones">
@@ -818,19 +743,19 @@
     </div>
   </section>
 
-  <!-- ── CTA ────────────────────────────────────────────────── -->
+  <!-- CTA -->
   <section class="cta-section" id="apply">
     <div class="cta-inner">
       <h2 class="cta-title">Ready to<br>partner with us?</h2>
       <p class="cta-body">Get started today.</p>
-      <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up →</button>
+      <button onclick="openModal()" class="btn-primary" style="font-size: 13px; background: var(--accent); color: white;">Sign Up &rarr;</button>
       <br><br><br>
       <p class="step-body">Questions?</p>
-      <a href="/cdn-cgi/l/email-protection#f39295959a9f9a92879680b397929a9d84928196dd909c9e" class="cta-email">Email us directly</a>
+      <a href="mailto:affiliates@dainware.com" class="cta-email">Email us directly</a>
     </div>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const FUNCTIONS_BASE = 'https://us-central1-wander-eab4e.cloudfunctions.net';
 
     function openModal() {
@@ -851,24 +776,12 @@
       const mediumUrl = document.getElementById('mediumUrl').value.trim();
       const btn       = document.getElementById('submitBtn');
 
-      if (!name) {
-        alert('Please enter your name.');
-        document.getElementById('creatorName').focus();
-        return;
-      }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address.');
-        document.getElementById('creatorEmail').focus();
-        return;
-      }
-      if (!platform) {
-        alert('Please select your content medium.');
-        document.getElementById('contentType').focus();
-        return;
-      }
+      if (!name) { alert('Please enter your name.'); document.getElementById('creatorName').focus(); return; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); document.getElementById('creatorEmail').focus(); return; }
+      if (!platform) { alert('Please select your content medium.'); document.getElementById('contentType').focus(); return; }
 
       btn.disabled = true;
-      btn.textContent = 'Sending…';
+      btn.textContent = 'Sending\u2026';
 
       try {
         const res = await fetch(`${FUNCTIONS_BASE}/affiliateInterestedNotify`, {
@@ -876,47 +789,54 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, platform, mediumUrl }),
         });
-
         if (!res.ok) {
           const err = await res.json().catch(() => ({}));
           throw new Error(err.error || `Server error ${res.status}`);
         }
-
         document.getElementById('modalForm').classList.add('hidden');
         document.getElementById('modalSuccess').classList.add('visible');
-
       } catch (err) {
         console.error('Signup error:', err.message);
         btn.disabled = false;
-        btn.textContent = 'Apply to Partner →';
+        btn.textContent = 'Apply to Partner \u2192';
         alert('Something went wrong. Please try again or email us directly.');
       }
     }
 
     // Typewriter effect
-    const typewriterLines = [
-      "About 50 meters ahead, you'll find the",
-      "oldest building in Valencia. Built in 1238",
-      "and on top of a former Moorish structure,",
-      "it now houses one of the most"
-    ];
-    const typewriterFull = typewriterLines.join('\n');
-    const typewriterEl = document.getElementById('typewriterText');
-    let charIndex = 0;
+    (function() {
+      var lines = [
+        "About 50 meters ahead, you'll find the",
+        "oldest building in Valencia. Built in 1238",
+        "and on top of a former Moorish structure,",
+        "it now houses one of the most"
+      ];
+      var full = lines.join("\n");
+      var i = 0;
 
-    function typeNextChar() {
-      if (!typewriterEl) return;
-      if (charIndex < typewriterFull.length) {
-        typewriterEl.textContent = typewriterFull.slice(0, charIndex + 1);
-        charIndex++;
-        setTimeout(typeNextChar, 38);
+      function tick() {
+        var el = document.getElementById('typewriterText');
+        if (!el) return;
+        if (i <= full.length) {
+          el.textContent = full.substring(0, i);
+          i++;
+          setTimeout(tick, 38);
+        }
       }
-    }
 
-    setTimeout(typeNextChar, 1000);
+      setTimeout(tick, 1200);
+    })();
 
     // Close on backdrop click or Escape key
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('signupModal').addEventListener('click', function (e) {
         if (e.target === this) closeModal();
-      }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    });
+  </script>
+
+</body>
+</html>
