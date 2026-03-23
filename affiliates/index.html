@@ -593,7 +593,7 @@
           <input type="url" id="mediumUrl" placeholder="https://" autocomplete="url" />
           <p style="font-size: 12px; color: var(--text-light); margin-top: 7px; line-height: 1.5;">Your YouTube channel, Facebook group, Instagram profile, or blog URL.</p>
         </div>
-        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Apply to Partner &rarr;</button>
+        <button class="modal-submit" id="submitBtn" onclick="submitForm()">Submit &rarr;</button>
         <p class="modal-note">We'll be in touch within a few business days.</p>
       </div>
       <div class="modal-success" id="modalSuccess">
@@ -801,7 +801,7 @@
       } catch (err) {
         console.error('Signup error:', err.message);
         btn.disabled = false;
-        btn.textContent = 'Apply to Partner \u2192';
+        btn.textContent = 'Submit \u2192';
         alert('Something went wrong. Please try again or email us directly.');
       }
     }
