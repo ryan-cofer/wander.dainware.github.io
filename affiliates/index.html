@@ -783,7 +783,7 @@
     }
 
     // Typewriter effect
-    document.addEventListener('DOMContentLoaded', function() {
+    (function() {
       var lines = [
         "About 50 meters ahead, you'll find",
         "the oldest building in Valencia.",
@@ -797,7 +797,7 @@
 
       function tick() {
         var el = document.getElementById('typewriterText');
-        console.log('typewriterText el:', el, 'i:', i);
+        console.log('tick el:', el, 'i:', i);
         if (!el) return;
         if (i <= full.length) {
           el.textContent = full.substring(0, i);
@@ -807,7 +807,7 @@
       }
 
       setTimeout(tick, 1200);
-    });
+    })();
 
     // Close on backdrop click or Escape key
     document.addEventListener('DOMContentLoaded', function () {
