@@ -205,8 +205,6 @@
       letter-spacing: -0.05em;
       text-transform: uppercase;
       margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.2s;
     }
     .hero-title {
       font-size: clamp(32px, 4vw, 48px);
@@ -214,8 +212,6 @@
       line-height: 1.05;
       letter-spacing: -0.05em;
       margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.35s;
     }
     .hero-title em { font-style: italic; }
     .hero-body {
@@ -223,15 +219,11 @@
       line-height: 1.7;
       max-width: 440px;
       margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.5s;
     }
     .hero-actions {
       display: flex;
       align-items: center;
       gap: 32px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.65s;
     }
     .btn-primary {
       display: inline-block;
@@ -268,15 +260,9 @@
     .mockup-wrapper {
       position: relative;
       display: inline-block;
+      filter: drop-shadow(0 32px 48px rgba(0,0,0,0.3));
     }
-    .mockup-wrapper img {
-      display: block;
-      border-radius: 42px;
-      box-shadow:
-        0 60px 120px rgba(0,0,0,0.35),
-        0 20px 40px rgba(0,0,0,0.25),
-        0 4px 12px rgba(0,0,0,0.2);
-    }
+    .mockup-wrapper img { display: block; }
     .poi-dot-overlay {
       position: absolute;
       width: 15px;
