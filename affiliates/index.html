@@ -196,19 +196,8 @@
     }
     .nav-cta:hover { opacity: 0.75; border-bottom-color: white; }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 48px 80px;
-      gap: 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: visible;
-    }
-    .hero-left { padding-top: 20px; }
+    /* HERO OVERRIDES */
+    .hero-section .product-section { padding-top: 120px; }
     .hero-eyebrow {
       font-size: 11px;
       font-weight: 700;
@@ -511,27 +500,12 @@
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
 
-      .hero {
-        min-height: unset;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "eyebrow"
-          "title"
-          "mockup"
-          "body"
-          "actions";
-        padding: 100px 24px 60px;
-        gap: 24px;
-        overflow: visible;
-      }
-      .hero-left { display: contents; }
-      .hero-eyebrow { grid-area: eyebrow; margin-bottom: 0; }
-      .hero-title   { grid-area: title;   margin-bottom: 0; }
-      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; }
-      .hero-right   { grid-area: mockup; display: flex; justify-content: center; }
-      .hero-right img { max-width: 100%; max-height: 450px !important; }
-      .hero-actions { grid-area: actions; margin-top: 0; }
-
+      .hero-section .product-section { padding-top: 100px; }
+      .hero-section .product-phones img { max-height: 450px !important; }
+      .hero-eyebrow { margin-bottom: 0; }
+      .hero-title   { margin-bottom: 0; }
+      .hero-body    { margin-bottom: 0; font-size: 14px; line-height: 1.55; }
+      .hero-actions { margin-top: 0; }
       .typewriter-text { font-size: 8px; }
 
       .stats-strip { padding: 28px 16px; }
@@ -610,9 +584,9 @@
   </nav>
 
   <!-- HERO -->
-  <section style="background: var(--accent); overflow: visible; padding-bottom: 80px;">
-    <div class="hero">
-      <div class="hero-left">
+  <section class="hero-section" style="background: var(--accent);">
+    <div class="product-section">
+      <div>
         <p class="hero-eyebrow" style="color: rgba(255,255,255,0.7);">Creator Affiliate Program</p>
         <h1 class="hero-title" style="color: white;">You <em style="color: rgba(255,255,255,0.7);">inspire</em><br>your audience<br>to travel.<br><br>Wander makes it <em style="color: rgba(255,255,255,0.7);">magical</em> when they arrive.</h1>
         <p class="hero-body" style="color: rgba(255,255,255,0.75);">Wander is a location-aware and proximity-triggered audio guide that works anywhere in the world. Partner with us and earn 25% commissions &mdash; with no expiration date.</p>
@@ -620,9 +594,9 @@
           <button onclick="openModal()" class="btn-primary" style="background: white; color: var(--accent);">Sign Up</button>
         </div>
       </div>
-      <div class="hero-right">
+      <div class="product-phones">
         <div class="mockup-wrapper">
-          <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain;" />
+          <img src="mockup1.png" alt="Wander app mockup" style="max-width: 100%; max-height: 650px; object-fit: contain; display: block;" />
           <div class="poi-dot-overlay" style="top: 67%; left: 65%;"></div>
           <div class="typewriter-overlay">
             <div class="typewriter-text" id="typewriterText"></div>
