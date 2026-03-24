@@ -515,25 +515,23 @@
       nav { padding: 20px 24px; }
 
       .hero {
-        grid-template-columns: 1fr 55%;
-        grid-template-rows: auto auto auto;
+        grid-template-columns: 1fr;
         grid-template-areas:
-          "eyebrow  eyebrow"
-          "title    title"
-          "body     mockup"
-          "actions  mockup";
+          "eyebrow"
+          "title"
+          "mockup"
+          "body"
+          "actions";
         padding: 100px 24px 60px;
-        gap: 0;
-        column-gap: 16px;
-        row-gap: 16px;
+        gap: 24px;
       }
       .hero-left { display: contents; }
-      .hero-eyebrow { grid-area: eyebrow; margin-bottom: 8px; }
-      .hero-title   { grid-area: title;   margin-bottom: 20px; }
-      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; align-self: end; padding-bottom: 16px; }
-      .hero-right   { grid-area: mockup;  opacity: 1; animation: none; align-self: center; }
-      .hero-right img { max-height: 330px; width: 330px; }
-      .hero-actions { grid-area: actions; margin-top: 0; align-self: start; padding-top: 16px; }
+      .hero-eyebrow { grid-area: eyebrow; margin-bottom: 0; }
+      .hero-title   { grid-area: title;   margin-bottom: 0; }
+      .hero-body    { grid-area: body;    margin-bottom: 0; font-size: 14px; line-height: 1.55; }
+      .hero-right   { grid-area: mockup;  opacity: 1; animation: none; align-self: center; justify-self: center; }
+      .hero-right img { max-height: 330px; width: auto; }
+      .hero-actions { grid-area: actions; margin-top: 0; }
 
       .typewriter-text { font-size: 8px; }
 
