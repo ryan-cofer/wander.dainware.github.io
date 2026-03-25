@@ -503,11 +503,24 @@
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
 
-      .hero-section .product-section { padding-top: 100px; }
+      /* Hero: stack image above text on mobile */
+      .hero-section .product-section {
+        padding-top: 100px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-section .product-section > div:first-child {
+        order: 2;
+      }
+      .hero-section .product-phones {
+        order: 1;
+      }
+
       .hero-section .product-phones img { max-height: 450px !important; }
       .hero-eyebrow { margin-bottom: 0; }
       .hero-title   { margin-bottom: 0; }
-      .hero-body    { margin-bottom: 0; font-size: 14px; line-height: 1.55; }
+      /* Restore margin-bottom on hero body so there's breathing room above the button */
+      .hero-body    { margin-bottom: 36px; font-size: 14px; line-height: 1.55; }
       .hero-actions { margin-top: 0; }
       .typewriter-text { font-size: 8px; }
 
