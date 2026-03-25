@@ -442,6 +442,7 @@
       margin-bottom: 24px;
     }
     .step-title { font-size: 16px; font-weight: 700; letter-spacing: -0.05em; color: var(--text); margin-bottom: 12px; }
+    .step-title br { display: none; }
     .step-body { font-size: 14px; line-height: 1.65; color: var(--text-light); }
 
     /* PRODUCT */
@@ -550,7 +551,21 @@
 
       .how-section { padding: 64px 24px; }
       .steps { grid-template-columns: 1fr 1fr; }
-      .step { border-right: none; border-bottom: 1px solid rgba(23,88,115,0.1); }
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: rgba(23,88,115,0.15);
+        border: 1px solid rgba(23,88,115,0.15);
+      }
+      .step {
+        background: var(--white);
+        border-right: none;
+        border-bottom: none;
+        padding: 24px 20px;
+      }
+      .step-number { font-size: 48px; margin-bottom: 16px; }
+      .step-title { font-size: 13px; }
+      .step-title br { display: block; }
       .product-section { grid-template-columns: 1fr; padding: 64px 24px; }
       .cta-section { padding: 64px 24px; }
       .modal { padding: 40px 28px 36px; }
@@ -595,9 +610,9 @@
         <p class="modal-note">We'll be in touch within a few business days.</p>
       </div>
       <div class="modal-success" id="modalSuccess">
-        <div class="success-icon"><img src="/appIconRounded.png" alt="Wander" style="width: 48px; height: 48px;" /></div>
-        <div class="success-title">Submission Successful</div>
-        <p class="success-body">We'll get in touch with you shortly!.</p>
+        <div class="success-icon">&#x2705;</div>
+        <div class="success-title">Application sent!</div>
+        <p class="success-body">Thanks for reaching out. We'll review your application and get back to you within a few business days.</p>
       </div>
     </div>
   </div>
@@ -712,7 +727,7 @@
       <div class="steps">
         <div class="step">
           <div class="step-number">01</div>
-          <div class="step-title">Sign Up</div>
+          <div class="step-title">Sign<br>Up</div>
           <p class="step-body">Submit your details. We'll follow up with next steps.</p>
         </div>
         <div class="step">
@@ -727,7 +742,7 @@
         </div>
         <div class="step">
           <div class="step-number">04</div>
-          <div class="step-title">Get Paid</div>
+          <div class="step-title">Get<br>Paid</div>
           <p class="step-body">Commissions are calculated from verified sales data and paid via PayPal monthly.</p>
         </div>
       </div>
